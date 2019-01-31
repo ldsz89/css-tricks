@@ -1,0 +1,455 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Mini Cards</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <style>
+            body {
+                background-color: #17141d;
+            }
+
+            .main-sections {
+                display: flex;
+                flex-flow: row nowrap;
+                align-items: center;
+                justify-content: center;
+                background-color: #000;
+                overflow: hidden;
+            }
+
+            .main-sections li {
+                list-style: none;
+                /* padding: 1rem 3rem; */
+            }
+
+            .main-sections li.active {
+                background-color: #7a7a8c;
+            }
+
+            .main-sections li a:hover {
+                color: red;
+            }
+
+            .main-sections li a {
+                color: white;
+                text-decoration: none;
+                padding: 10px 0 10px 65px;
+                background: black;
+                position: relative;
+                display: block;
+                transition: .5s;
+            }
+            
+            .main-sections li a::after {
+                content: "";
+                display: block;
+                width: 0;
+                height: 0;
+                border-top: 50px solid transparent;
+                border-bottom: 50px solid transparent;
+                border-left: 30px solid black;
+                position: absolute;
+                top: 50%;
+                margin-top: -50px;
+                left: 100%;
+                z-index: 2;
+            }
+
+            .main-sections li a::before {
+                content: "";
+                display: block;
+                width: 0;
+                height: 0;
+                border-top: 50px solid transparent;
+                border-bottom: 50px solid transparent;
+                border-left: 30px solid #7a7a8c;
+                position: absolute;
+                top: 50%;
+                margin-top: -50px;
+                margin-left: 1px;
+                left: 100%;
+                z-index: 1;
+            }
+
+            a {
+                text-decoration: none;
+            }
+
+            .module {
+                clear: both;
+                margin: 0 0 1rem 0;
+                position: relative;
+            }
+
+            .mini-card-grid {
+                padding: 3rem;
+                display: flex;
+                overflow-x: scroll;
+                /* flex-direction: row;
+                flex-wrap: wrap; */
+            }
+
+            .mini-card {
+                min-width: 300;
+                min-height: 350px;
+                padding: 1.5rem;
+                border-radius: 16px;
+                background: #17141d;
+                box-shadow: -1rem 0 3rem #000;
+                display: flex;
+                flex-direction: column;
+                transition: .2s;
+                margin: 0;
+                scroll-behavior: smooth;
+            }
+
+            .mini-card:not(:first-child) {
+                margin-left: -130px;
+            }
+
+            .mini-card:hover {
+                transform: translate(0, -1rem);
+            }
+
+            .mini-card:hover ~ .mini-card {
+                transform: translateX(130px);
+            }
+
+            .mini-article-card-header {
+                margin-bottom: auto;
+            }
+            
+            .mini-article-subhead {
+                font-size: 14px;
+                color: #fff;
+            }
+
+            time {
+                color: #7a7a8c;
+            }
+
+            .mini-card h2 {
+                font-size: 20px;
+                margin: .25rem 0 auto 0;
+                color: #fff;
+            }
+
+            h2 a {
+                color: inherit;
+                border: 0;
+                display: inline-block;
+            }
+        </style>
+    </head>
+    <body>
+        <header class="site-header" id="site-header">
+            <div class="header-middle-area">
+                <nav class="main-nav" id="main-nav">
+                    <ul class="main-sections">
+                        <li class="">
+                            <a href="#">Articles</a>
+                        </li>
+                        <li class="active">
+                            <a href="#">Videos</a>
+                        </li>
+                        <li class="">
+                            <a href="#">Almanac</a>
+                        </li>
+                        <li class="">
+                            <a href="#">Snippets</a>
+                        </li>
+                        <li class="">
+                            <a href="#">Newsletter</a>
+                        </li>
+                        <li class="">
+                            <a href="#">Jobs</a>
+                        </li>
+                        <li>
+                            <a href="#">Guides</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <div class="mini-card-grid">
+            <article class="mini-card module module-article article">
+                <header class="mini-article-card-header">
+                    <div class="mini-article-card-title">
+                        <div class="mini-article-subhead">
+                            Article
+                            <time datetime="2019-01-21">Jan 21, 2019</time>
+                        </div>
+                        <h2>
+                            <a href="#" class="article-card-header read-article">The Great Divide</a>
+                        </h2>
+                    </div>
+                </header>
+                <div class="mini-article-meta">
+                    <div class="mini-article-byline"></div>
+                    <div class="tags"></div>
+                </div>
+            </article>
+            <article class="mini-card module module-article article">
+                <header class="mini-article-card-header">
+                    <div class="mini-article-card-title">
+                        <div class="mini-article-subhead">
+                            Article
+                            <time datetime="2019-01-21">Jan 21, 2019</time>
+                        </div>
+                        <h2>
+                            <a href="#" class="article-card-header read-article">New ES2018 Features Every JavaScript Developer Should Know</a>
+                        </h2>
+                    </div>
+                </header>
+                <div class="mini-article-meta">
+                    <div class="mini-article-byline"></div>
+                    <div class="tags"></div>
+                </div>
+            </article>
+            <article class="mini-card module module-article article">
+                <header class="mini-article-card-header">
+                    <div class="mini-article-card-title">
+                        <div class="mini-article-subhead">
+                            Article
+                            <time datetime="2019-01-21">Jan 21, 2019</time>
+                        </div>
+                        <h2>
+                            <a href="#" class="article-card-header read-article">The Great Divide</a>
+                        </h2>
+                    </div>
+                </header>
+                <div class="mini-article-meta">
+                    <div class="mini-article-byline"></div>
+                    <div class="tags"></div>
+                </div>
+            </article>
+            <article class="mini-card module module-article article">
+                <header class="mini-article-card-header">
+                    <div class="mini-article-card-title">
+                        <div class="mini-article-subhead">
+                            Article
+                            <time datetime="2019-01-21">Jan 21, 2019</time>
+                        </div>
+                        <h2>
+                            <a href="#" class="article-card-header read-article">The Great Divide</a>
+                        </h2>
+                    </div>
+                </header>
+                <div class="mini-article-meta">
+                    <div class="mini-article-byline"></div>
+                    <div class="tags"></div>
+                </div>
+            </article>
+            <article class="mini-card module module-article article">
+                <header class="mini-article-card-header">
+                    <div class="mini-article-card-title">
+                        <div class="mini-article-subhead">
+                            Article
+                            <time datetime="2019-01-21">Jan 21, 2019</time>
+                        </div>
+                        <h2>
+                            <a href="#" class="article-card-header read-article">The Great Divide</a>
+                        </h2>
+                    </div>
+                </header>
+                <div class="mini-article-meta">
+                    <div class="mini-article-byline"></div>
+                    <div class="tags"></div>
+                </div>
+            </article>
+            <article class="mini-card module module-article article">
+                <header class="mini-article-card-header">
+                    <div class="mini-article-card-title">
+                        <div class="mini-article-subhead">
+                            Article
+                            <time datetime="2019-01-21">Jan 21, 2019</time>
+                        </div>
+                        <h2>
+                            <a href="#" class="article-card-header read-article">The Great Divide</a>
+                        </h2>
+                    </div>
+                </header>
+                <div class="mini-article-meta">
+                    <div class="mini-article-byline"></div>
+                    <div class="tags"></div>
+                </div>
+            </article>
+            <article class="mini-card module module-article article">
+                <header class="mini-article-card-header">
+                    <div class="mini-article-card-title">
+                        <div class="mini-article-subhead">
+                            Article
+                            <time datetime="2019-01-21">Jan 21, 2019</time>
+                        </div>
+                        <h2>
+                            <a href="#" class="article-card-header read-article">The Great Divide</a>
+                        </h2>
+                    </div>
+                </header>
+                <div class="mini-article-meta">
+                    <div class="mini-article-byline"></div>
+                    <div class="tags"></div>
+                </div>
+            </article>
+            <article class="mini-card module module-article article">
+                <header class="mini-article-card-header">
+                    <div class="mini-article-card-title">
+                        <div class="mini-article-subhead">
+                            Article
+                            <time datetime="2019-01-21">Jan 21, 2019</time>
+                        </div>
+                        <h2>
+                            <a href="#" class="article-card-header read-article">The Great Divide</a>
+                        </h2>
+                    </div>
+                </header>
+                <div class="mini-article-meta">
+                    <div class="mini-article-byline"></div>
+                    <div class="tags"></div>
+                </div>
+            </article>
+            <article class="mini-card module module-article article">
+                <header class="mini-article-card-header">
+                    <div class="mini-article-card-title">
+                        <div class="mini-article-subhead">
+                            Article
+                            <time datetime="2019-01-21">Jan 21, 2019</time>
+                        </div>
+                        <h2>
+                            <a href="#" class="article-card-header read-article">The Great Divide</a>
+                        </h2>
+                    </div>
+                </header>
+                <div class="mini-article-meta">
+                    <div class="mini-article-byline"></div>
+                    <div class="tags"></div>
+                </div>
+            </article>
+            <article class="mini-card module module-article article">
+                <header class="mini-article-card-header">
+                    <div class="mini-article-card-title">
+                        <div class="mini-article-subhead">
+                            Article
+                            <time datetime="2019-01-21">Jan 21, 2019</time>
+                        </div>
+                        <h2>
+                            <a href="#" class="article-card-header read-article">The Great Divide</a>
+                        </h2>
+                    </div>
+                </header>
+                <div class="mini-article-meta">
+                    <div class="mini-article-byline"></div>
+                    <div class="tags"></div>
+                </div>
+            </article>
+            <article class="mini-card module module-article article">
+                <header class="mini-article-card-header">
+                    <div class="mini-article-card-title">
+                        <div class="mini-article-subhead">
+                            Article
+                            <time datetime="2019-01-21">Jan 21, 2019</time>
+                        </div>
+                        <h2>
+                            <a href="#" class="article-card-header read-article">The Great Divide</a>
+                        </h2>
+                    </div>
+                </header>
+                <div class="mini-article-meta">
+                    <div class="mini-article-byline"></div>
+                    <div class="tags"></div>
+                </div>
+            </article>
+            <article class="mini-card module module-article article">
+                <header class="mini-article-card-header">
+                    <div class="mini-article-card-title">
+                        <div class="mini-article-subhead">
+                            Article
+                            <time datetime="2019-01-21">Jan 21, 2019</time>
+                        </div>
+                        <h2>
+                            <a href="#" class="article-card-header read-article">The Great Divide</a>
+                        </h2>
+                    </div>
+                </header>
+                <div class="mini-article-meta">
+                    <div class="mini-article-byline"></div>
+                    <div class="tags"></div>
+                </div>
+            </article>
+            <article class="mini-card module module-article article">
+                <header class="mini-article-card-header">
+                    <div class="mini-article-card-title">
+                        <div class="mini-article-subhead">
+                            Article
+                            <time datetime="2019-01-21">Jan 21, 2019</time>
+                        </div>
+                        <h2>
+                            <a href="#" class="article-card-header read-article">The Great Divide</a>
+                        </h2>
+                    </div>
+                </header>
+                <div class="mini-article-meta">
+                    <div class="mini-article-byline"></div>
+                    <div class="tags"></div>
+                </div>
+            </article>
+            <article class="mini-card module module-article article">
+                <header class="mini-article-card-header">
+                    <div class="mini-article-card-title">
+                        <div class="mini-article-subhead">
+                            Article
+                            <time datetime="2019-01-21">Jan 21, 2019</time>
+                        </div>
+                        <h2>
+                            <a href="#" class="article-card-header read-article">The Great Divide</a>
+                        </h2>
+                    </div>
+                </header>
+                <div class="mini-article-meta">
+                    <div class="mini-article-byline"></div>
+                    <div class="tags"></div>
+                </div>
+            </article>
+            <article class="mini-card module module-article article">
+                <header class="mini-article-card-header">
+                    <div class="mini-article-card-title">
+                        <div class="mini-article-subhead">
+                            Article
+                            <time datetime="2019-01-21">Jan 21, 2019</time>
+                        </div>
+                        <h2>
+                            <a href="#" class="article-card-header read-article">The Great Divide</a>
+                        </h2>
+                    </div>
+                </header>
+                <div class="mini-article-meta">
+                    <div class="mini-article-byline"></div>
+                    <div class="tags"></div>
+                </div>
+            </article>
+            <article id="end" class="mini-card module module-article article">
+                <header class="mini-article-card-header">
+                    <div class="mini-article-card-title">
+                        <div class="mini-article-subhead">
+                            Article
+                            <time datetime="2019-01-21">Jan 21, 2019</time>
+                        </div>
+                        <h2>
+                            <a href="#" class="article-card-header read-article">The Great Divide</a>
+                        </h2>
+                    </div>
+                </header>
+                <div class="mini-article-meta">
+                    <div class="mini-article-byline"></div>
+                    <div class="tags"></div>
+                </div>
+            </article>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    </body>
+</html>
